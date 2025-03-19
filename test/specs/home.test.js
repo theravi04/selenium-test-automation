@@ -18,5 +18,21 @@ describe("Transaction Table Sorting", () => {
     console.log("Fetching all values in the sorted Amount column...");
     const amountValues = await HomePage.getAllAmountValues();
     console.log("All Amount Values:", amountValues);
+
+    const numericValues = amountValues.map(value => 
+      parseFloat(value.replace(/[^0-9.-]+/g, ""))
+    );
+
+    console.log("Numeric Values:", numericValues);
+
+    const isSorted = numericValues.every((val, i, arr) => i === 0 || arr[i - 1] <= val);
+
+    if (isSorted) {
+      console.log("The Amount column is sorted in ascending order.");
+    } else {
+      console.log("The Amount column is NOT sorted correctly.");
+    }
+
+    expect(isSorted).toBe(true);
   });
 });

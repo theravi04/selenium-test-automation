@@ -1,17 +1,13 @@
 # Do run this
 
-# First
+## First
 
 ```
-npm init -y
+npm i
 ```
 
-# Second
+## Second
 
 ```
-npm install webdriverio @wdio/cli @wdio/local-runner @wdio/mocha-framework @wdio/spec-reporter chai
-```
-
-# Third
-
 npx wdio config
+```
